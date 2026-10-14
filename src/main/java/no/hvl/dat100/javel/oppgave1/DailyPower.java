@@ -5,15 +5,17 @@ public class DailyPower {
     // a) print power prices during a day
     public static void printPowerPrices(double[] prices) {
 
-        // TODO
-
+        for (int i = 0; i < prices.length; i++){
+            System.out.print(prices[i] + "NOK ");
+        }
     }
 
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
 
-        // TODO
-
+        for (int i = 0; i < usage.length; i++){
+            System.out.print(usage[i] + "kWt ");
+        }
     }
 
     // c) compute power usage for a single day
@@ -21,7 +23,17 @@ public class DailyPower {
 
         double sum = 0;
 
-        // TODO
+        for (int r = 0; r < usage.length - 1; r ++){
+            int[] rad = usage[r];
+
+            int sum = 0;
+            int sistepos = rad.length - 1;
+
+            for (int k = 0; k < sistepos; k++){
+                sum += rad[k];
+            }
+            rad[sistepos] = sum;
+        }
 
         return sum;
     }
