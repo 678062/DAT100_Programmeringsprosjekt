@@ -12,12 +12,17 @@ public class CustomersMain {
         System.out.println("==============");
         System.out.println();
 
-        /*
-        TODO
+        //Definerer kundene
+        Customer alice = new Customer("Alice Smith", "alice@example.com", 1001, PowerAgreementType.SPOTPRICE);
+        Customer bob = new Customer("Bob Johnson", "bob@example.com", 1002,PowerAgreementType.NORGESPRICE);
+        Customer charlie = new Customer("Charlie Rose", "charlie@example.com", 1003, PowerAgreementType.POWERSUPPORT);
+        Customer diana = new Customer("Diana Prince", "diana@example.com", 1004, PowerAgreementType.NORGESPRICE);
+        Customer ethan = new Customer("Ethan Hunt", "ethan@example.com", 1005, PowerAgreementType.POWERSUPPORT);
 
-         Write code that uses and tests the methods implemented in the Customers class
+        //Oppgave a
+        System.out.println(count);
 
-        */
-
+        //Oppgave b
+        System.out.println("Antall kunder: ");
     }
 }
