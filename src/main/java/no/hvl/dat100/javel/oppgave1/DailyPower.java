@@ -5,15 +5,17 @@ public class DailyPower {
     // a) print power prices during a day
     public static void printPowerPrices(double[] prices) {
 
-        // TODO
-
+        for (int i = 0; i < prices.length; i++){
+            System.out.print(prices[i] + "NOK ");
+        }
     }
 
     // b) print power usage during a day
     public static void printPowerUsage(double[] usage) {
 
-        // TODO
-
+        for (int i = 0; i < usage.length; i++){
+            System.out.print(usage[i] + "kWt ");
+        }
     }
 
     // c) compute power usage for a single day
@@ -21,8 +23,11 @@ public class DailyPower {
 
         double sum = 0;
 
-        // TODO
-
+        for (int t = 0; t < usage.length; t++) {
+            sum = sum + usage[t];
+        }
+        double total = sum;
+        System.out.println(sum + " kW");
         return sum;
     }
 
@@ -31,8 +36,10 @@ public class DailyPower {
 
         double price = 0;
 
-        // TODO
-
+        for (int i = 0; i < usage.length; i++) {
+            price = price + usage[i] * prices[i];
+        }
+        System.out.print(price + "kr ");
         return price;
     }
 
@@ -44,8 +51,10 @@ public class DailyPower {
 
         double support = 0;
 
-        // TODO
-
+        if (price > THRESHOLD){
+            support = PERCENTAGE * (price - THRESHOLD) * usage;
+        }
+        System.out.print(support); //HVORFOR SKRIVER DEN IKKE UT TALLET??
         return support;
     }
 
@@ -54,39 +63,52 @@ public class DailyPower {
 
         double support = 0;
 
-        // TODO
-
+        for (int i = 0; i < usage.length; i++) {
+            support = support + getSupport(usage[i], prices[i]);
+        }
+        System.out.print(support);
         return support;
     }
 
+    // g) compute norges pris for a single day
     private static final double NORGESPRIS_KWH = 0.5;
 
-    // g) compute norges pris for a single day
     public static double computeNorgesPrice(double[] usage) {
 
         double price = 0;
 
-        // TODO
-
+        for (int t = 0; t < usage.length; t++) {
+            price = price + usage[t] * NORGESPRIS_KWH;
+        }
+        System.out.print(price + "kr");  //FEIL? svaret ble så lavt (13,84kr)
         return price;
     }
 
-    // g) compute peak usage during a single day
+    // h) compute peak usage during a single day
     public static double findPeakUsage(double[] usage) {
 
         double temp_max = 0;
 
-        // TODO
-
+        for (int i = 0; i < usage.length; i++){
+            if (usage[i] > temp_max){
+                temp_max = usage[i];
+            }
+        }
+        System.out.print(temp_max + "kWh");
         return temp_max;
     }
 
+    // i)
     public static double findAvgPower(double[] usage) {
 
         double average = 0;
+        double sum = 0;
 
-        // TODO
-
+        for (int i = 0; i < usage.length; i++){
+            sum = sum + usage[i];
+        }
+        average = sum / usage.length;
+        System.out.print(average + " kWh");
         return average;
     }
 }
