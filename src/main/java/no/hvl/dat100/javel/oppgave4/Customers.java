@@ -15,7 +15,6 @@ public class Customers {
     // b) count number of non-null references
     public int countNonNull() {
 
-
         int count = 0;
 
         for (int i = 0; i < customers.length; i++){
@@ -23,7 +22,6 @@ public class Customers {
                 count++;
             }
         }
-        System.out.println("Antall kunder: " + count);
         return count;
     }
 
@@ -33,8 +31,11 @@ public class Customers {
         boolean funnet = false;
         Customer c = null;
 
-        
-
+        for (int i = 0; i < customers.length; i++ ){
+            if (customers[i] != null && customers[i].getCustomer_id() == customer_id){
+                c = customers[i];
+            }
+        }
         return c;
     }
 

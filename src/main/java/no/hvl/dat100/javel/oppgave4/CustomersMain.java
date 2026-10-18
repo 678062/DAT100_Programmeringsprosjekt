@@ -13,6 +13,8 @@ public class CustomersMain {
         System.out.println();
 
         //Definerer kundene
+        Customers custom = new Customers (5);
+
         Customer alice = new Customer("Alice Smith", "alice@example.com", 1001, PowerAgreementType.SPOTPRICE);
         Customer bob = new Customer("Bob Johnson", "bob@example.com", 1002,PowerAgreementType.NORGESPRICE);
         Customer charlie = new Customer("Charlie Rose", "charlie@example.com", 1003, PowerAgreementType.POWERSUPPORT);
@@ -20,9 +22,17 @@ public class CustomersMain {
         Customer ethan = new Customer("Ethan Hunt", "ethan@example.com", 1005, PowerAgreementType.POWERSUPPORT);
 
         //Oppgave a
-        System.out.println(count);
+        custom.addCustomer(alice);
+        custom.addCustomer(bob);
+        custom.addCustomer(charlie);
+        custom.addCustomer(diana);
+        custom.addCustomer(ethan);
 
         //Oppgave b
-        System.out.println("Antall kunder: ");
+        System.out.println("antall kunder: " + custom.countNonNull());
+
+        //oppgave c
+        System.out.println("Kunde: " + custom.getCustomer(1003));
+
     }
 }
