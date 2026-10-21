@@ -1,29 +1,43 @@
+
 package no.hvl.dat100.javel.oppgave2;
 
-import no.hvl.dat100.javel.oppgave1.DayPowerData;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class MonthMain {
+
     public static void main(String[] args) {
 
-        // test data
-        double[][] power_prices_month = MonthPowerData.powerprices_month;
+        // Hent dataene fra MonthPowerData
+        double[][] usage = MonthPowerData.usage;
+        double[][] prices = MonthPowerData.prices;
 
-        double[][] power_usage_month = MonthPowerData.powerusage_month;
+        // a) Skriv ut månedlig strømforbruk
+        System.out.println("Månedlig strømforbruk:");
+        MonthlyPower.print_PowerUsage(usage);
 
-        System.out.println("==============");
-        System.out.println("OPPGAVE 2");
-        System.out.println("==============");
-        System.out.println();
+        // b) Skriv ut månedlige strømpriser
+        System.out.println("\nMånedlige strømpriser:");
+        MonthlyPower.print_PowerPrices(prices);
 
-        /*
-        TODO
+        // c) Beregn totalt strømforbruk
+        double totalUsage = MonthlyPower.computePowerUsage(usage);
+        System.out.printf("\nTotalt strømforbruk: %.2f kWh%n", totalUsage);
 
-         Write code that tests the methods you implement in the MonthlyPower class
-         Remember to teste the methods as you implement them
-         Remember to also to check that you get the expected results
-         */
+        // d) Sjekk om forbruket overstiger grensen
+        double threshold = 5000;
+        boolean exceeded = MonthlyPower.exceedThreshold(usage, threshold);
 
+        System.out.println("Overstiger forbruket " + threshold
+                + " kWh? " + exceeded);
+
+        // e) Beregn samlet spotpris
+        double spotPrice = MonthlyPower.computeSpotPrice(usage, prices);
+        System.out.printf("Samlet spotpris: %.2f kr%n", spotPrice);
+
+        // f) Beregn strømstøtte
+        double powerSupport = MonthlyPower.computePowerSupport(usage, prices);
+        System.out.printf("Strømstøtte: %.2f kr%n", powerSupport);
+
+        // g) Beregn Norgespris
+        double norgesPrice = MonthlyPower.computeNorgesPrice(usage);
+        System.out.printf("Norgespris: %.2f kr%n", norgesPrice);
     }
 }
