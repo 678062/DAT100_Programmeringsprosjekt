@@ -34,5 +34,41 @@ public class CustomersMain {
         //oppgave c
         System.out.println("Kunde: " + custom.getCustomer(1003));
 
+        // Oppgave d
+        Customers test = new Customers(2);
+
+        System.out.println("Legg til Alice: "
+                + test.addCustomer(alice)); // true
+
+        System.out.println("Legg til Bob: "
+                + test.addCustomer(bob)); // true
+
+        System.out.println("Legg til Charlie: "
+                + test.addCustomer(charlie)); // false
+
+        System.out.println("Antall kunder: "
+                + test.countNonNull()); // 2
+
+        // Oppgave e
+        Customer removed = test.removeCustomer(1001);
+
+        System.out.println("Fjernet kunde: " + removed); // Alice
+
+        System.out.println("Antall kunder etter fjerning: "
+                + test.countNonNull()); // 1
+
+        System.out.println("Fjern ukjent kunde: "
+                + test.removeCustomer(9999)); // null
+
+        // Oppgave f
+        Customer[] customerArray = test.getCustomers();
+
+        System.out.println("Kunder i tabellen:");
+
+        for (int i = 0; i < customerArray.length; i++) {
+            if (customerArray[i] != null) {
+                System.out.println(customerArray[i]);
+            }
+        }
     }
 }

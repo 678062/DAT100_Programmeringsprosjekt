@@ -41,32 +41,32 @@ public class Customers {
 
     // d) add a customer to the reference table
     public boolean addCustomer(Customer c) {
-
-        boolean inserted = false;
-
-        // TODO
-
-        return inserted;
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] == null) {
+                customers[i] = c;
+                return true;
+            }
+        }
+        return false;
     }
 
     // e) remove customer with given id from reference table
     public Customer removeCustomer(int customer_id) {
+        for (int i = 0; i < customers.length; i++) {
+            if (customers[i] != null
+                    && customers[i].getCustomer_id() == customer_id) {
 
-        boolean deleted = false;
-        Customer c = null;
+                Customer c = customers[i];
+                customers[i] = null;
+                return c;
+            }
+        }
 
-        // TODO
-
-        return c;
+        return null;
     }
 
     // f) return reference table with all customers
     public Customer[] getCustomers() {
-
-        Customer[] customers = null;
-
-        // TODO
-
         return customers;
     }
 }
