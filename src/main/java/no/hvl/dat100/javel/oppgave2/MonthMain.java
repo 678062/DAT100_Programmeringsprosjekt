@@ -6,8 +6,8 @@ public class MonthMain {
     public static void main(String[] args) {
 
         // Hent dataene fra MonthPowerData
-        double[][] usage = MonthPowerData.usage;
-        double[][] prices = MonthPowerData.prices;
+        double[][] usage = MonthPowerData.powerprices_month;
+        double[][] prices = MonthPowerData.powerusage_month;
 
         // a) Skriv ut månedlig strømforbruk
         System.out.println("Månedlig strømforbruk:");

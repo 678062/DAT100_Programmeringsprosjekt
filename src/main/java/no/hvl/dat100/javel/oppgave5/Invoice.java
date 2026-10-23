@@ -17,19 +17,46 @@ public class Invoice {
 
     public Invoice(Customer c, String month, double[][] usage, double[][] power_prices) {
 
-        // TODO - konstruktør
+        this.c = c;
+        this.month = month;
+        this.usage = usage;
+        this.prices = power_prices;
+        this.amount = 0;
 
     }
 
     public void computeAmount() {
+        amount = 0;
 
-        // TODO
+        for (int day = 0; day < usage.length; day++) {
+            for (int hour = 0; hour < usage[day].length; hour++) {
+                amount += usage[day][hour] * prices[day][hour];
+            }
 
+        }
     }
+            public void printInvoice() {
+                double totalUsage = 0;
 
-    public void printInvoice() {
+                for (int day = 0; day < usage.length; day++) {
+                    for (int hour = 0; hour < usage[day].length; hour++) {
+                        totalUsage += usage[day][hour];
+                    }
+                }
 
-        // TODO
+                System.out.println("Customer number " + c.getCustomerNumber());
+                System.out.println("Name  " + c.getName());
+                System.out.println("Email " + c.getEmail());
+                System.out.println("Agreement " + c.getAgreement());
 
-    }
+                System.out.println();
+                System.out.println("Month: " + month);
+                System.out.printf("Usage: %10.2f kWh%n", totalUsage);
+                System.out.printf("Amount: %9.2f NOK%n", amount);
+                System.out.println();
+
+
+            }
+
+
 }

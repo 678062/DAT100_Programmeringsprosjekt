@@ -54,7 +54,7 @@ public class DailyPower {
         if (price > THRESHOLD){
             support = PERCENTAGE * (price - THRESHOLD) * usage;
         }
-        System.out.print(support); //HVORFOR SKRIVER DEN IKKE UT TALLET??
+
         return support;
     }
 
@@ -80,7 +80,7 @@ public class DailyPower {
         for (int t = 0; t < usage.length; t++) {
             price = price + usage[t] * NORGESPRIS_KWH;
         }
-        System.out.print(price + "kr");  //FEIL? svaret ble så lavt (13,84kr)
+        System.out.print(price + "kr");
         return price;
     }
 

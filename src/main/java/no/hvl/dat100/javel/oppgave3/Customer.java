@@ -53,4 +53,8 @@ public class Customer {
                 + "Email " + email + "\n"
                 + "Agreement " + agreement;
     }
+
+    public int getCustomerNumber() {
+        return customer_id;
+    }
 }
